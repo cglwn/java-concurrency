@@ -14,13 +14,13 @@ public class StopThread {
 	Thread backgroundThread = new Thread(new Runnable() {
 		public void run() {
 		    int i = 0;
-		    while(!stopRequested)
+		    while(!stopRequested())
 			System.out.println(i++);
 		}
 	    });
 	backgroundThread.start();
 
 	Thread.sleep(1);
-	stopRequested = true;
+	requestStop();
     }
 }
